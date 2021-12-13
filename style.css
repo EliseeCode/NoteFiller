@@ -1,0 +1,12 @@
+#writeNoteButton{
+    margin:10px;
+}
+#textareaMarks{
+width:150px;
+height:300px;
+float:left;
+margin:10px;
+
+}
+button{margin:20px;padding:8px;}
+.formItem{margin:20px;width:200px;}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+	<body>
+		<h1>Input to fills in automaticaly</h1>
+		
+		<h2>ISBN</h2>
+		<input type="text" id="isbn" value="9782378622534">
+		<button onclick="goGoogleBook();">Search</button>
+		<div>
+			<h2>Result</h2>
+			<div id="result"></div>
+		</div>
+		<script>
+		function goGoogleBook(){
+		var isbn=$("#isbn").val();
+		$.getJSON( "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbn+"&key=AIzaSyBgnMP7eZ9nUTD3o-pYq6jNCxOOSn15yMQ", function( data ) {
+			console.log(data);
+			console.log(data?.items[0]?.volumeInfo);
+		});
+        $.getJSON("https://openlibrary.org/isbn/"+isbn+".json", function (data2) {
+                console.log(data2);
+        });
+           
+		}
+		</script>
+	</body>
+</html>
